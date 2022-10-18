@@ -31,9 +31,3 @@ pipeline {
                 }
         }
     }
-            post{
-                success{
-                  echo "Published successfully"
-                }
-            }
-}
