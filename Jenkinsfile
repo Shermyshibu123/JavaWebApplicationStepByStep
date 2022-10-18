@@ -23,11 +23,10 @@ pipeline {
     }
       stage('SonarQube Analysis') {
                 steps{
-                    script{
-    def mvn = tool 'Default_Maven';
-    withSonarQubeEnv('Sonar_Test1') {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=maven"
-    }
+                   sh "mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=maven \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqp_2e2d85423bcdabef2bc0b0fcda6e80965d3b1f39"
   }
                 }
         }
